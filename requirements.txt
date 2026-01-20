@@ -1,0 +1,29 @@
+# Core app
+streamlit>=1.32.0
+python-dotenv>=1.0.0
+
+# Data handling
+pandas>=2.1.0
+numpy>=1.26.0
+openpyxl>=3.1.0
+
+# Visualization
+matplotlib>=3.8.0
+
+# Statistics
+scipy>=1.11.0
+
+# LLM / LangChain stack
+langchain>=0.2.0
+langchain-openai>=0.1.0
+langfuse>=2.0.0
+openai>=1.0.0
+
+# Utilities
+typing-extensions>=4.9.0
+
+#JSON Schema
+pydantic>=2.6.0
+
+#Python version
+Python >= 3.10
