@@ -1,2 +1,9 @@
-__pycache__/.env venv/
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Environment
 .env
