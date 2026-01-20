@@ -8,7 +8,6 @@ import numpy as np
 import textwrap
 import sys
 import os
-from fordllm.utils import TokenFetcher
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage
 from langfuse.langchain import CallbackHandler
@@ -594,12 +593,12 @@ def ask_llm(prompt: str, model: str = "gpt-5-mini-2025-08-07", timeout: int = 60
   
   try:
       # 1. Setup Environment Credentials
-      client_id = os.getenv("FORDLLM_CLIENT_ID")
-      client_secret = os.getenv("FORDLLM_CLIENT_SECRET")
+      client_id = os.getenv("LLM_CLIENT_ID")
+      client_secret = os.getenv("LLM_CLIENT_SECRET")
 
 
       if not client_id or not client_secret:
-          return "[LLM-error] Missing FORDLLM_CLIENT_ID or FORDLLM_CLIENT_SECRET"
+          return "[LLM-error] Missing LLM_CLIENT_ID or LLM_CLIENT_SECRET"
 
       # 2. Initialize Authentication
       token_fetcher = TokenFetcher() 
@@ -613,13 +612,13 @@ def ask_llm(prompt: str, model: str = "gpt-5-mini-2025-08-07", timeout: int = 60
       # 4. Initialize the LLM Client
       llm = ChatOpenAI(
           model = model,
-          base_url = "https://api.pivpn.core.ford.com/fordllmapi/api/v1",
+          base_url = "https://api.pivpn.core..com/llmapi/api/v1",
           api_key = token_fetcher.token, 
           temperature = 0,
           callbacks = [langfuse_handler],
           request_timeout = timeout
       )
-
+      
       # 5. Invoke the model
       response = llm.invoke([HumanMessage(content=prompt)])
       return response.content
