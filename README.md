@@ -2,7 +2,7 @@
 
 ## Architecture Diagram
 
-![Architecture Diagram](screenshots/architecture-flowchart.png):
+![Architecture Diagram](screenshots/architecture_diagram.png)
 
 All designed to run locally.
 
